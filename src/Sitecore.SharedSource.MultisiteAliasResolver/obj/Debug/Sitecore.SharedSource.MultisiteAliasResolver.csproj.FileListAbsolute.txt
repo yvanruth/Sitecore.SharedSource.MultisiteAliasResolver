@@ -1,0 +1,12 @@
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\CommandTemplates.dll
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\CommandTemplates.pdb
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.Kernel.dll
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\Sitecore.SharedSource.MultisiteAliasResolver.csprojResolveAssemblyReference.cache
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\CommandTemplates.dll
+D:\Intern\MultisiteAliasResolver\Sitecore.SharedSource.MultisiteAliasResolver\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\CommandTemplates.pdb
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.SharedSource.MultisiteAliasResolver.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.SharedSource.MultisiteAliasResolver.pdb
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.Kernel.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\Sitecore.SharedSource.MultisiteAliasResolver.csprojResolveAssemblyReference.cache
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\Sitecore.SharedSource.MultisiteAliasResolver.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Debug\Sitecore.SharedSource.MultisiteAliasResolver.pdb

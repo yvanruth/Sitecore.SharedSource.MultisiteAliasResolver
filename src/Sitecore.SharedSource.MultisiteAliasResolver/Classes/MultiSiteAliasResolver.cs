@@ -9,6 +9,9 @@
     using Sitecore.Configuration;
     using Sitecore.Web;
     using Sitecore.Sites;
+    using Sitecore;
+    using Sitecore.IO;
+    using System.IO;
     class MultiSiteAliasResolver : AliasResolver
     {
         public new void Process(HttpRequestArgs args)
@@ -39,17 +42,51 @@
                             {
                                 Sitecore.Context.Item = AliasLinkedTo;
 
-                                Uri requestUri = WebUtil.GetRequestUri();
-                                Sitecore.Context.Site = SiteContextFactory.GetSiteContext(requestUri.Host, args.Url.FilePath, requestUri.Port);
+                                SiteContext ctx = ResolveSiteContext(args);
+                                if(ctx != null)
+                                {
+                                    Sitecore.Context.Site = ctx;
+                                }                              
                             }
                         }
                     }
-                }
-
-                
+                }                
             }
 
             base.Process(args);
+        }
+
+        /// <summary>
+        /// Resolves the site context.
+        /// </summary>
+        /// <param name="args">The args.</param>
+        /// <returns></returns>
+        protected virtual SiteContext ResolveSiteContext(HttpRequestArgs args)
+        {
+            SiteContext siteContext;
+            string queryString = WebUtil.GetQueryString("sc_site");
+            if (queryString.Length > 0)
+            {
+                siteContext = SiteContextFactory.GetSiteContext(queryString);
+                Assert.IsNotNull(siteContext, string.Concat("Site from query string was not found: ", queryString));
+                return siteContext;
+            }
+            if (Settings.EnableSiteConfigFiles)
+            {
+                string[] directoryName = new string[] { Path.GetDirectoryName(args.Url.FilePath) };
+                string str = StringUtil.GetString(directoryName);
+                string str1 = FileUtil.MakePath(FileUtil.NormalizeWebPath(str), "site.config");
+                if (FileUtil.Exists(str1))
+                {
+                    siteContext = SiteContextFactory.GetSiteContextFromFile(str1);
+                    Assert.IsNotNull(siteContext, string.Concat("Site from site.config was not found: ", str1));
+                    return siteContext;
+                }
+            }
+            Uri requestUri = WebUtil.GetRequestUri();
+            siteContext = SiteContextFactory.GetSiteContext(requestUri.Host, args.Url.FilePath, requestUri.Port);
+            Assert.IsNotNull(siteContext, string.Concat("Site from host name and path was not found. Host: ", requestUri.Host, ", path: ", args.Url.FilePath));
+            return siteContext;
         }
 
         /// <summary>
