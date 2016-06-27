@@ -1,4 +1,4 @@
-﻿namespace CommandTemplates.Classes
+﻿namespace Sitecore.SharedSource.MultisiteAliasResolver
 {
     using System;
     using Sitecore.Pipelines.HttpRequest;
@@ -12,6 +12,8 @@
     using Sitecore;
     using Sitecore.IO;
     using System.IO;
+    using System.Linq;
+
     class MultiSiteAliasResolver : AliasResolver
     {
         public new void Process(HttpRequestArgs args)
@@ -42,11 +44,12 @@
                             {
                                 Sitecore.Context.Item = AliasLinkedTo;
 
-                                SiteContext ctx = ResolveSiteContext(args);
-                                if(ctx != null)
+                                string aliasPath = AliasLinkedTo.Paths.FullPath;                               
+                                SiteContext ctx = ResolveSiteContext(args, AliasLinkedTo);
+                                if (ctx != null)
                                 {
                                     Sitecore.Context.Site = ctx;
-                                }                              
+                                }
                             }
                         }
                     }
@@ -61,7 +64,7 @@
         /// </summary>
         /// <param name="args">The args.</param>
         /// <returns></returns>
-        protected virtual SiteContext ResolveSiteContext(HttpRequestArgs args)
+        protected virtual SiteContext ResolveSiteContext(HttpRequestArgs args, Item aliasItem)
         {
             SiteContext siteContext;
             string queryString = WebUtil.GetQueryString("sc_site");
@@ -84,7 +87,7 @@
                 }
             }
             Uri requestUri = WebUtil.GetRequestUri();
-            siteContext = SiteContextFactory.GetSiteContext(requestUri.Host, args.Url.FilePath, requestUri.Port);
+            siteContext = SiteContextFactory.GetSiteContext(requestUri.Host, aliasItem.Paths.FullPath.Replace(Sitecore.Context.Site.RootPath, string.Empty), requestUri.Port);
             Assert.IsNotNull(siteContext, string.Concat("Site from host name and path was not found. Host: ", requestUri.Host, ", path: ", args.Url.FilePath));
             return siteContext;
         }
