@@ -105,7 +105,7 @@
             {
                 if (!string.IsNullOrEmpty(args.LocalPath) && args.LocalPath.Length > 1)
                 {                    
-                    Item aliasItem = masterDb.GetItem(string.Format("/{0}/{1}/{2}", websitePath, "setting", "aliases") + args.LocalPath);                   
+                    Item aliasItem = masterDb.GetItem(string.Format("{0}/{1}/{2}", websitePath, "settings", "aliases") + args.LocalPath);                   
                     if (aliasItem != null)
                     {                    
                         return aliasItem;

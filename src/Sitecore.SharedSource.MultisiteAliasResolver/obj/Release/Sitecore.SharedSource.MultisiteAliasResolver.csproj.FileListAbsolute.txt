@@ -1,0 +1,6 @@
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.SharedSource.MultisiteAliasResolver.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.SharedSource.MultisiteAliasResolver.pdb
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\bin\Sitecore.Kernel.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Release\Sitecore.SharedSource.MultisiteAliasResolver.csprojResolveAssemblyReference.cache
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Release\Sitecore.SharedSource.MultisiteAliasResolver.dll
+D:\Intern\MSAR\MSAR\src\Sitecore.SharedSource.MultisiteAliasResolver\obj\Release\Sitecore.SharedSource.MultisiteAliasResolver.pdb
