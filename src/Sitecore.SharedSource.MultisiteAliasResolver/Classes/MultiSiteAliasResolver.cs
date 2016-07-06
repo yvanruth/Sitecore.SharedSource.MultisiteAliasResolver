@@ -104,20 +104,11 @@
             if (masterDb != null && Sitecore.Context.Site != null)
             {
                 if (!string.IsNullOrEmpty(args.LocalPath) && args.LocalPath.Length > 1)
-                {
-                    string folder = Sitecore.Context.Site.RootPath.ToLower().Contains("ggd") ? "/Settings" : "/Instellingen";
-                    Item aliasItem = masterDb.GetItem(websitePath + folder + "/aliases" + args.LocalPath);
-
-                    // Sitecore.Diagnostics.Log.Warn("Trying to fetch ALIAS for " + websitePath + folder + "/aliases" + args.LocalPath, this);
-
+                {                    
+                    Item aliasItem = masterDb.GetItem(string.Format("/{0}/{1}/{2}", websitePath, "setting", "aliases") + args.LocalPath);                   
                     if (aliasItem != null)
-                    {
-                        // Sitecore.Diagnostics.Log.Warn("ALIAS found", this);
+                    {                    
                         return aliasItem;
-                    }
-                    else
-                    {
-                        // Sitecore.Diagnostics.Log.Warn("ALIAS not found", this);
                     }
                 }
             }            
